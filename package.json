@@ -1,0 +1,22 @@
+{
+  "name": "supabase-typed-query-builder",
+  "version": "1.0.0",
+  "description": "Type-safe query builder for Supabase.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "supabase",
+    "typescript",
+    "query-builder",
+    "typed",
+    "relations"
+  ],
+  "author": "Auguste",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
