@@ -1,2 +1,2 @@
-export * from './relationHelper';
-export * from './queryBuilder';
+export * from './relation-helper';
+export * from './query-builder';

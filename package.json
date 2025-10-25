@@ -1,22 +1,43 @@
 {
   "name": "supabase-typed-query-builder",
   "version": "1.0.0",
-  "description": "Type-safe query builder for Supabase.",
+  "description": "Type-safe query builder for Supabase with automatic relation detection and full TypeScript autocompletion.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "supabase",
     "typescript",
     "query-builder",
-    "typed",
-    "relations"
+    "type-safe",
+    "relations",
+    "postgres",
+    "postgrest",
+    "autocompletion"
   ],
   "author": "Auguste",
-  "license": "ISC",
+  "license": "MIT",
+  "peerDependencies": {
+    "@supabase/supabase-js": "^2.0.0",
+    "typescript": "^5.0.0"
+  },
   "devDependencies": {
+    "@supabase/supabase-js": "^2.39.0",
     "typescript": "^5.9.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/auguste-lab/supabase-typed-query-builder"
+  },
+  "bugs": {
+    "url": "https://github.com/auguste-lab/supabase-typed-query-builder/issues"
+  },
+  "homepage": "https://github.com/auguste-lab/supabase-typed-query-builder#readme"
 }
