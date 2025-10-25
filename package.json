@@ -1,12 +1,13 @@
 {
   "name": "supabase-typed-query-builder",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Type-safe query builder for Supabase with automatic relation detection and full TypeScript autocompletion.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "src/types/database.ts"
   ],
   "scripts": {
     "build": "tsc",
@@ -24,12 +25,7 @@
   ],
   "author": "Auguste",
   "license": "MIT",
-  "peerDependencies": {
-    "@supabase/supabase-js": "^2.0.0",
-    "typescript": "^5.0.0"
-  },
   "devDependencies": {
-    "@supabase/supabase-js": "^2.39.0",
     "typescript": "^5.9.3"
   },
   "repository": {

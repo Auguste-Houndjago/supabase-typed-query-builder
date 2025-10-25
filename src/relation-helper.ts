@@ -1,5 +1,5 @@
 // src/relation-helper.ts
-import type { Database } from '@/types/database'
+import type { Database } from './types/database'
 
 type TableName = keyof Database['public']['Tables']
 

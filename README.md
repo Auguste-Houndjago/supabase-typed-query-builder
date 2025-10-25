@@ -1,21 +1,27 @@
-# Supabase Typed Queries
+# Supabase Typed Query Builder
 
 Type-safe query builder for Supabase with **automatic relation detection** and **full TypeScript autocompletion**.
 
+---
+
 ## 🎯 Features
 
-- ✅ **Zero manual mapping** - Extracts relations automatically from your Supabase types
-- ✅ **Full autocompletion** - Tables, columns, and relations
-- ✅ **Type-safe** - Impossible to create invalid queries
-- ✅ **Bidirectional relations** - Direct (FK) and inverse relations
-- ✅ **Infinite nesting** - Deep relation queries with full typing
-- ✅ **Prisma-like syntax** - Intuitive API inspired by Prisma
+- ✅ **Zero manual mapping** — Extracts relations automatically from your Supabase types  
+- ✅ **Full autocompletion** — Tables, columns, and relations  
+- ✅ **Type-safe** — Impossible to create invalid queries  
+- ✅ **Bidirectional relations** — Direct (FK) and inverse relations  
+- ✅ **Infinite nesting** — Deep relation queries with full typing  
+- ✅ **Prisma-like syntax** — Intuitive API inspired by Prisma  
+
+---
 
 ## 📦 Installation
-```bash
-npm install supabase-typed-queries
-```
 
+```bash
+npm i supabase-typed-query-builder
+# or
+pnpm i supabase-typed-query-builder
+```
 ## 🚀 Quick Start
 
 ### 1. Generate your Supabase types
@@ -66,6 +72,83 @@ const query = buildQuery("User", {
 })
 
 const { data, error } = await supabase.from("User").select(query)
+```
+
+
+⚡ Integration with @supabase-cache-helpers/postgrest-react-query
+Here's how you can use Supabase Typed Query Builder with React Query Helpers for automatic cache management and invalidation.
+
+Example
+
+```typescript
+// src/lib/supabase/usage.ts
+import { buildQuery } from "supabase-typed-query-builder"
+import { supabase } from '@/utils/supabase/client'
+
+// Build a type-safe select query
+const query = buildQuery("User", {
+  select: {
+    id: true,
+    firstName: true,
+    lastName: true,
+    email: true,
+    avatar_url: true,
+    phone: true
+  },
+  include: {
+    UserOrganization: {
+      select: {
+        id: true,
+        role: true,
+        orgId: true,
+        isResponsable: true
+      },
+      include: {
+        Organization: {
+          select: {
+            id: true,
+            name: true,
+            slug: true,
+            avatar_url: true
+          }
+        }
+      }
+    }
+  }
+})
+
+// Export a reusable function for fetching users
+export function getUser() {
+  return supabase
+    .from("User")
+    .select(query)
+    .eq('email', 'augustehoundjago@gmail.com')
+  // Returns a fully typed Supabase query with relations
+}
+```
+
+```typescript
+// test/query/page.tsx
+"use client"
+import { getUser } from '@/lib/supabase/usage'
+import { useQuery } from '@supabase-cache-helpers/postgrest-react-query'
+import React from 'react'
+
+export default function Page() {
+  const { data, error } = useQuery(getUser())
+
+  return (
+    <div className='flex flex-col items-center p-8 justify-center'>
+      <h1>Get User</h1>
+      <pre>
+        data: {JSON.stringify(data, null, 2)}
+      </pre>
+      <pre>
+        error: {JSON.stringify(error, null, 2)}
+      </pre>
+    </div>
+  )
+}
 ```
 
 ## 📖 API

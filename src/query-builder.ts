@@ -1,5 +1,5 @@
 // src/query-builder.ts
-import type { Database } from '@/types/database'
+import type { Database } from './types/database'
 import type { DirectRelations, InverseRelations } from './relation-helper'
 
 type TableName = keyof Database['public']['Tables']
