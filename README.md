@@ -15,6 +15,17 @@ Type-safe query builder for Supabase with **automatic relation detection** and *
 
 ---
 
+## 🎥 Tutoriel vidéo
+
+Voici une démonstration rapide de l’utilisation du package et de l’intégration avec Supabase et le cache helper.  
+
+<video width="600" controls>
+  <source src="https://kyitmnunzsqyhqbkzekk.supabase.co/storage/v1/object/public/video/25.10.2025_07.19.52_REC.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+
 ## 📦 Installation
 
 ```bash
