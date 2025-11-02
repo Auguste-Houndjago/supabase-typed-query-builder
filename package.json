@@ -13,16 +13,22 @@
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
-  "keywords": [
-    "supabase",
-    "typescript",
-    "query-builder",
-    "type-safe",
-    "relations",
-    "postgres",
-    "postgrest",
-    "autocompletion"
-  ],
+"keywords": [
+  "supabase",
+  "typescript",
+  "type-safe",
+  "query-builder",
+  "supabase-js",
+  "postgrest",
+  "postgres",
+  "sql",
+  "types",
+  "autocompletion",
+  "orm",
+  "supabase typescript",
+  "supabase query",
+  "supabase typed query"
+],
   "author": "Auguste",
   "license": "MIT",
   "devDependencies": {
